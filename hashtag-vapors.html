@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hashtag Vapors | Vape Shop in Karachi</title>
+<meta name="description" content="Authentic vaping devices, e-liquids, pods and accessories in Karachi. Branches in Gulshan-e-Iqbal and Bahria Town. 18+ only.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;700&display=swap">
+<style>
+:root{--bg:#000;--panel:#0f0d0d;--line:#2a2424;--red:#e0261d;--text:#f4efe8;--mute:#9a9390;--r:18px}
+:root[data-theme="dark"]{--bg:#000}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font:400 16px/1.6 Manrope,system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);overflow-x:hidden}
+h1,h2,h3{font-family:Syne,Manrope,sans-serif;line-height:1.05;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+#c3d{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity .6s}
+body:not(.home) #c3d{opacity:.4}
+main{position:relative;z-index:1}
+/* preloader */
+#pre{position:fixed;inset:0;z-index:200;background:#000;display:grid;place-items:center;text-align:center;transition:opacity .6s,visibility .6s}
+#pre.out{opacity:0;visibility:hidden}
+#pre img{width:110px;border-radius:50%;animation:spin 2.4s ease-in-out infinite;margin-bottom:26px}
+@keyframes spin{0%,100%{transform:rotateY(0)}50%{transform:rotateY(360deg)}}
+.bar{width:220px;height:4px;background:var(--line);border-radius:9px;overflow:hidden;margin:0 auto 10px}
+.bar i{display:block;height:100%;width:0;background:var(--red);transition:width .2s}
+#pre small{color:var(--mute)}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:60;width:0}
+/* nav */
+nav{position:fixed;top:calc(34px + env(safe-area-inset-top,0px));left:0;right:0;z-index:50;padding:10px 20px;display:flex;align-items:center;gap:18px;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav img{width:42px;height:42px;border-radius:50%}
+nav b{font-family:Syne;font-size:18px}
+.nl{margin-left:auto;display:flex;gap:6px}
+.nl a{padding:8px 14px;border-radius:99px;color:var(--mute);font-size:15px;transition:.2s}
+.nl a:hover{color:var(--text)}
+.nl a.on{background:var(--text);color:#000}
+.cartbtn{background:var(--red);color:#fff;border:0;border-radius:99px;padding:9px 16px;font:700 14px Manrope;cursor:pointer}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;width:40px;height:40px;font-size:20px;cursor:pointer}
+@media(max-width:860px){.burger{display:block}.nl{position:fixed;top:calc(96px + env(safe-area-inset-top,0px));left:0;right:0;flex-direction:column;background:#000;padding:14px 20px;border-bottom:1px solid var(--line);display:none}.nl.open{display:flex}.cartbtn{margin-left:auto}}
+/* pages */
+.pg{display:none;min-height:100vh;padding-top:124px}
+.pg.on{display:block;animation:in .5s}
+@keyframes in{from{opacity:0;transform:translateY(16px)}}
+.sec{padding:70px 0}
+h2{font-size:clamp(32px,5vw,56px);font-weight:800;margin-bottom:14px}
+.sub{color:var(--mute);max-width:54ch;margin-bottom:36px}
+.hero{min-height:calc(100vh - 124px);min-height:calc(100svh - 124px);display:grid;align-items:center}
+.hero h1{font-size:clamp(46px,9vw,112px);font-weight:800;max-width:9ch}
+.hero p{max-width:34ch;color:var(--mute);margin:20px 0 28px;font-size:18px}
+.btn{display:inline-block;background:var(--red);color:#fff;border:0;border-radius:99px;padding:14px 26px;font:700 15px Manrope;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:scale(1.05)}
+.btn.ghost{background:transparent;border:1px solid var(--line);margin-left:8px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0;background:rgba(0,0,0,.6)}
+.stats b{font:800 48px Syne;color:var(--red);display:block}
+.stats span{color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;perspective:900px}
+.card{background:rgba(15,13,13,.92);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:transform .15s,border-color .2s;transform-style:preserve-3d;cursor:pointer}
+.card:hover{border-color:var(--red)}
+.art{height:150px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;font-size:64px;background:radial-gradient(circle at 50% 120%,var(--c),#000 70%);transform:translateZ(30px)}
+.card h3{font-size:20px;margin-bottom:4px}
+.card small{color:var(--mute)}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px}
+.price{font-weight:700}
+.add{background:var(--text);color:#000;border:0;border-radius:99px;padding:8px 16px;font:700 13px Manrope;cursor:pointer}
+.tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.tools input,.tools select{max-width:260px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{border:1px solid var(--line);background:none;color:var(--text);padding:8px 18px;border-radius:99px;cursor:pointer;font:500 14px Manrope}
+.chip.on{background:var(--text);color:#000}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px}
+.cols>div{border-top:2px solid var(--red);padding-top:16px}
+.cols h3,.box h3{font-size:22px;margin-bottom:8px}
+.cols p,.box p,.prose p{color:var(--mute)}
+.prose{max-width:62ch}.prose p{margin-bottom:16px;font-size:18px}
+.boxes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.box{background:rgba(15,13,13,.92);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.box .btn{margin:14px 10px 0 0;padding:10px 20px}
+.cat{font-size:20px;display:flex;justify-content:space-between;align-items:center;min-height:120px;font-family:Syne;font-weight:800}
+.cat span{font-size:44px}
+.cta{background:var(--red);border-radius:var(--r);padding:44px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.cta .btn{background:#000}
+details{border-bottom:1px solid var(--line);padding:18px 0;max-width:760px}
+summary{cursor:pointer;font:700 19px Syne;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--red);font-size:24px}
+details[open] summary::after{content:"–"}
+details p{color:var(--mute);margin-top:10px}
+form{display:grid;gap:14px;max-width:520px}
+input,textarea,select{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:13px 14px;font:inherit}
+textarea{min-height:110px;resize:vertical}
+.ok{color:#6fdc8c;min-height:24px}
+/* footer */
+footer{position:relative;z-index:1;background:#050404;border-top:1px solid var(--line);padding:56px 0 0;color:var(--mute);font-size:15px}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:34px}
+@media(max-width:800px){.fg{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fg{grid-template-columns:1fr}}
+footer h4{font:700 17px Syne;color:var(--text);margin-bottom:12px}
+footer li{list-style:none;margin-bottom:8px}footer ul{padding:0}
+footer a:hover{color:var(--red)}
+.fb{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 calc(20px + env(safe-area-inset-bottom,0px));display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.fb .dev{margin-left:auto;text-align:right}
+.fb .dev b{color:var(--text)}
+/* drawer, modal, chat */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(380px,100%);background:var(--panel);border-left:1px solid var(--line);z-index:70;padding:calc(20px + env(safe-area-inset-top,0px)) 20px 20px;transform:translateX(105%);transition:transform .35s;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer .items{flex:1;overflow:auto;margin:16px 0}
+.item{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.item button{background:none;border:1px solid var(--line);color:var(--text);width:26px;height:26px;border-radius:50%;cursor:pointer}
+.modal{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.8);display:none;place-items:center;padding:20px}
+.modal.open{display:grid}
+.mb{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);max-width:420px;width:100%;padding:24px;text-align:center;perspective:700px}
+.mb .art{height:200px;font-size:96px}
+.gate{position:fixed;inset:0;z-index:150;background:#000;display:none;place-items:center;text-align:center;padding:24px}
+.gate img{width:120px;border-radius:50%;margin-bottom:20px}
+.gate p{color:var(--mute);margin:12px auto 24px;max-width:36ch}
+.fab{position:fixed;right:18px;z-index:55;width:54px;height:54px;border-radius:50%;border:0;color:#fff;font-size:24px;cursor:pointer;display:grid;place-items:center}
+#wa{bottom:calc(86px + env(safe-area-inset-bottom,0px));background:#1faa57}
+#fab{bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--red);box-shadow:0 8px 30px rgba(224,38,29,.4)}
+.chat{position:fixed;right:18px;bottom:calc(150px + env(safe-area-inset-bottom,0px));z-index:55;width:min(340px,calc(100% - 36px));background:var(--panel);border:1px solid var(--line);border-radius:var(--r);display:none;flex-direction:column;overflow:hidden}
+.chat.open{display:flex}
+.msgs{height:240px;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.m{padding:9px 12px;border-radius:14px;max-width:85%}
+.m.b{background:#1e1919;align-self:flex-start}.m.u{background:var(--red);align-self:flex-end}
+.qs{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 12px}
+.qs button{background:none;border:1px solid var(--line);color:var(--text);border-radius:99px;padding:5px 11px;font:12px Manrope;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(30px);background:var(--text);color:#000;padding:10px 18px;border-radius:99px;font-weight:700;opacity:0;transition:.3s;z-index:90}
+.toast.show{opacity:1;transform:translateX(-50%)}
+#ann{position:fixed;top:0;left:0;right:0;z-index:51;height:calc(34px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);background:var(--red);color:#fff;font:700 13px/34px Manrope;text-align:center;overflow:hidden}
+#ann span{display:block;transition:opacity .4s}
+#cur{position:fixed;inset:0;z-index:300;pointer-events:none}
+#wipe{position:fixed;inset:0;z-index:250;background:var(--red);transform:translateY(100%);pointer-events:none}
+.heart{background:none;border:0;color:var(--text);font-size:20px;cursor:pointer;padding:0 4px}
+.heart.on{color:var(--red)}
+#spin{height:300vh;position:relative}
+.stick{position:sticky;top:0;height:100vh;display:flex;align-items:center}
+.stick .wrap{position:relative;height:100%;width:100%}
+.cap{position:absolute;top:50%;margin-top:-90px;max-width:30ch;opacity:0;transition:opacity .5s,transform .5s;transform:translateY(20px)}
+.cap.on{opacity:1;transform:none}
+.cap h2{font-size:clamp(36px,6vw,72px)}
+@media(max-width:800px){.cap{top:auto;bottom:12%;margin-top:0}}
+.ob{display:inline-block;margin-bottom:10px;font-size:13px;font-weight:700;padding:4px 12px;border-radius:99px;background:#12301c;color:#6fdc8c}
+.ob.c{background:#3a1512;color:#ff8d84}
+.mini{display:flex;gap:14px;overflow:auto;padding-bottom:6px}
+.mini .card{min-width:190px;padding:12px}.mini .art{height:80px;font-size:36px}
+.qo{display:grid;gap:10px;margin-top:16px}
+.qo button{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px;font:600 15px Manrope;cursor:pointer}
+.qo button:hover{border-color:var(--red)}
+.lang{background:none;border:1px solid var(--line);color:var(--text);border-radius:99px;padding:8px 12px;font:700 13px Manrope;cursor:pointer}
+[lang=ur] :is(body,h1,h2,h3,b,summary){font-family:'Noto Sans Arabic',Manrope,sans-serif}
+[lang=ur] :is(h1,h2,h3,p,summary,small,.ob){unicode-bidi:plaintext}
+@media(max-width:520px){nav b{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body class="home">
+<div id="pre"><div><img data-logo alt="Hashtag Vapors"><div class="bar"><i id="pbar"></i></div><small id="ppct">Loading 0%</small></div></div>
+<div id="prog"></div>
+<div id="ann"><span>Authentic products from recognized brands</span></div><div id="wipe"></div><canvas id="cur" aria-hidden="true"></canvas>
+<div class="gate" id="gate"><div><img data-logo alt="Hashtag Vapors logo"><h2 style="font-size:34px">Are you 18 or older?</h2><p>Vaping products contain nicotine and are for adults only. You must be of legal age to enter.</p><button class="btn" id="yes">Yes, I'm 18+</button><a class="btn ghost" href="https://www.google.com">No, leave</a></div></div>
+
+<nav>
+  <img data-logo alt=""><b>Hashtag Vapors</b>
+  <div class="nl" id="nl"><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">About</a><a href="#branches">Branches</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+  <button class="lang" id="wl" aria-label="Wishlist">♡ <span id="wcnt">0</span></button><button class="lang" id="lang">اردو</button><button class="cartbtn" id="cartOpen" aria-label="Open cart">Cart (<span id="cnt">0</span>)</button>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+</nav>
+<canvas id="c3d" aria-hidden="true"></canvas>
+
+<main>
+<!-- HOME -->
+<div class="pg on" id="p-home">
+  <div class="wrap hero"><div><h1>Tag your cloud.</h1><p>Authentic devices, e-liquids, pods and accessories from two branches in Karachi.</p><a class="btn" href="#shop">Shop the range</a><a class="btn ghost" href="#branches">Find a branch</a></div></div>
+  <div class="stats"><div class="wrap cols" style="border:0;gap:20px">
+    <div style="border:0;padding:0"><b data-n="2">0</b><span>Karachi branches</span></div>
+    <div style="border:0;padding:0"><b data-n="100" data-s="%">0</b><span>Authentic products</span></div>
+    <div style="border:0;padding:0"><b data-n="4">0</b><span>Product categories</span></div>
+    <div style="border:0;padding:0"><b data-n="18" data-s="+">0</b><span>Adults only</span></div></div></div>
+  <div id="spin"><div class="stick"><div class="wrap"><div class="cap on"><h2>Every angle. No copies.</h2><p class="sub">Scroll to turn the hashtag.</p></div><div class="cap"><h2>Picked, not piled.</h2><p class="sub">A shelf built from brands we trust.</p></div><div class="cap"><h2>Made for adults.</h2><p class="sub">Advice you can rely on, in store.</p></div></div></div></div>
+  <div class="sec"><div class="wrap"><div class="cta" style="background:#1a0a09;border:1px solid var(--red)"><div><h2 style="margin:0 0 6px">Find your flavour</h2><p style="color:var(--mute)">Three quick questions. We suggest what to try.</p></div><button class="btn" id="quizOpen">Start the quiz</button></div></div></div>
+  <div class="sec"><div class="wrap"><h2>Shop by category</h2><p class="sub">Tap a category to see everything in it.</p><div class="grid" id="cats"></div></div></div>
+  <div class="sec"><div class="wrap"><h2>Featured</h2><p class="sub">A few picks from the shelf.</p><div class="grid" id="feat"></div></div></div>
+  <div class="sec"><div class="wrap"><div class="cols">
+    <div><h3>Authentic only</h3><p>Every device and e-liquid comes from recognized brands.</p></div>
+    <div><h3>Hand-picked range</h3><p>Fewer, better products instead of everything on the shelf.</p></div>
+    <div><h3>Fair prices</h3><p>Competitive pricing on premium devices, pods and liquids.</p></div>
+    <div><h3>Real advice</h3><p>Personal help at both branches, before and after you buy.</p></div></div></div></div>
+  <div class="sec"><div class="wrap"><div class="cta"><h2 style="margin:0">Not sure what to pick?</h2><a class="btn" href="#contact">Ask our team</a></div></div></div>
+</div>
+
+<!-- SHOP -->
+<div class="pg" id="p-shop"><div class="wrap sec">
+  <h2>Shop</h2><p class="sub">Sample catalogue. Open a product for a closer look, then add it to your cart.</p>
+  <div class="tools"><input id="q" placeholder="Search products" aria-label="Search"><select id="sort" aria-label="Sort"><option value="">Sort: Featured</option><option value="a">Price: low to high</option><option value="d">Price: high to low</option></select></div>
+  <div class="chips" id="chips"></div><div class="grid" id="grid"></div><p id="none" class="sub" style="display:none;margin-top:20px">No products match. Try another search.</p><div id="rvw" style="margin-top:50px"></div>
+</div></div>
+
+<!-- ABOUT -->
+<div class="pg" id="p-about"><div class="wrap sec">
+  <h2>About Hashtag Vapors</h2>
+  <div class="prose"><p>Hashtag Vapors is a retail vape business based in Karachi, Pakistan, with branches in Gulshan-e-Iqbal and Bahria Town Karachi.</p>
+  <p>We specialize in vaping devices, e-liquids, pods and accessories from recognized brands. Our focus is product authenticity, customer service and a reliable shopping experience for adult customers.</p>
+  <p>We serve adults who are legally permitted to buy vaping products: existing vape users and anyone looking for authentic gear in Karachi.</p></div>
+  <div class="cols" style="margin-top:40px"><div><h3>Authenticity</h3><p>Real products from recognized brands, every time.</p></div><div><h3>Selection</h3><p>A carefully chosen range of premium devices and e-liquids.</p></div><div><h3>Service</h3><p>Personalized help in store and over the phone.</p></div><div><h3>Trust</h3><p>Quality products and a shopping experience you can rely on.</p></div></div>
+</div></div>
+
+<!-- BRANCHES -->
+<div class="pg" id="p-branches"><div class="wrap sec">
+  <h2>Our branches</h2><p class="sub">Walk in, ask anything, leave with the right setup.</p>
+  <div class="boxes">
+    <div class="box"><h3>Gulshan-e-Iqbal</h3><p>Main Rashid Minhas Road, Mateen Shopping Galaxy, Shop UG-11, Karachi 75956</p><a class="btn" href="tel:+923111095551">Call</a><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Mateen+Shopping+Galaxy+Rashid+Minhas+Road+Karachi">Directions</a></div>
+    <div class="box"><h3>Bahria Town Karachi</h3><p>Jakvani Midway Tower, Midway Commercial B, Shop 142b, Karachi 75956</p><a class="btn" href="tel:+923111095551">Call</a><a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Jakvani+Midway+Tower+Bahria+Town+Karachi">Directions</a></div>
+  </div>
+</div></div>
+
+<!-- FAQ -->
+<div class="pg" id="p-faq"><div class="wrap sec">
+  <h2>Questions</h2><p class="sub">Quick answers before you visit.</p>
+  <details><summary>Who can buy from you?</summary><p>Only adults who are legally permitted to purchase vaping products. We may ask for proof of age.</p></details>
+  <details><summary>Are your products authentic?</summary><p>Yes. We sell products from recognized brands and focus on authenticity.</p></details>
+  <details><summary>Which branches can I visit?</summary><p>Gulshan-e-Iqbal and Bahria Town Karachi. See the Branches page for addresses.</p></details>
+  <details><summary>How do I place an order?</summary><p>Add items to your cart and tap Place order. Your order opens in WhatsApp so our team can confirm it with you.</p></details>
+  <details><summary>Can you help me choose a device?</summary><p>Yes. Call us, message on WhatsApp or ask at either branch.</p></details>
+</div></div>
+
+<!-- CONTACT -->
+<div class="pg" id="p-contact"><div class="wrap sec">
+  <h2>Contact us</h2><p class="sub">Send a request. It opens in WhatsApp so we can reply quickly.</p>
+  <div class="boxes" style="align-items:start">
+    <form id="form"><input id="fn" required placeholder="Your name" aria-label="Name"><input id="fp" required type="tel" placeholder="Phone number" aria-label="Phone"><select id="ft" aria-label="Topic"><option>Product question</option><option>Order help</option><option>Warranty or returns</option></select><textarea id="fm" required placeholder="How can we help?" aria-label="Message"></textarea><button class="btn" type="submit">Send on WhatsApp</button><div class="ok" id="ok" role="status"></div></form>
+    <div class="box"><h3>Reach us</h3><p>Phone: (311) 109-5551<br>Email: hl1095551@gmail.com<br>Karachi, Sindh, Pakistan</p><a class="btn" href="tel:+923111095551">Call now</a></div>
+  </div>
+</div></div>
+</main>
+
+<footer><div class="wrap">
+  <div class="fg">
+    <div><div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><img data-logo alt="" style="width:48px;border-radius:50%"><b style="font:800 20px Syne;color:var(--text)">Hashtag Vapors</b></div><p>Authentic vaping devices, e-liquids, pods and accessories in Karachi.</p></div>
+    <div><h4>Pages</h4><ul><li><a href="#home">Home</a></li><li><a href="#shop">Shop</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div><h4>Visit</h4><ul><li><a href="#branches">Gulshan-e-Iqbal</a></li><li><a href="#branches">Bahria Town</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="tel:+923111095551">(311) 109-5551</a></li><li><a href="mailto:hl1095551@gmail.com">hl1095551@gmail.com</a></li><li>Karachi, Sindh 75956</li></ul></div>
+  </div>
+  <div class="fb"><span>© 2026 Hashtag Vapors. 18+ only. Nicotine is addictive.</span><span class="dev">Designed &amp; Developed by <b>Muhammad Saud Javed</b></span></div>
+</div></footer>
+
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:26px">Your cart</h3><button class="chip" id="cartClose">Close</button></div>
+  <div class="items" id="items"></div>
+  <div class="row" style="margin:0 0 14px"><b>Total</b><b id="total">PKR 0</b></div>
+  <button class="btn" id="checkout">Place order on WhatsApp</button>
+</aside>
+<div class="modal" id="modal"><div class="mb" id="mb"></div></div>
+<a class="fab" id="wa" aria-label="WhatsApp" target="_blank" rel="noopener" href="https://wa.me/923111095551">📞</a>
+<button class="fab" id="fab" aria-label="Chat assistant">💬</button>
+<div class="chat" id="chat"><div class="msgs" id="msgs"><div class="m b">Hi! I'm the Hashtag assistant. Ask about branches, products or contact details.</div></div><div class="qs" id="qs"><button>Branches</button><button>Products</button><button>Contact</button><button>Authentic?</button></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>const LOGO="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAFoAWgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD5omlk81/3j/eP8R9ab5kn99/zNJL/AK1/94/zptUIf5kn99/zNHmSf33/ADNMooAf5kn99/zNHmSf33/M0yigB/mSf33/ADNHmSf33/M0yigB/mSf33/M0eZJ/ff8zTKKAH+ZJ/ff8zR5kn99/wAzTKKAH+ZJ/ff8zR5kn99/zNMooAf5kn99/wAzR5kn99/zNMooAf5kn99/zNHmSf33/M0yigB/mSf33/M0eZJ/ff8AM0yigB/mSf33/M0eZJ/ff8zTKKAH+ZJ/ff8AM0eZJ/ff8zTKKAH+ZJ/ff8zR5kn99/zNMooAf5kn99/zNHmSf33/ADNMooAf5kn99/zNHmSf33/M0yigB/mSf33/ADNHmSf33/M0yigB/mSf33/M0eZJ/ff8zTKKAH+ZJ/ff8zR5kn99/wAzTKKAH+ZJ/ff8zR5kn99/zNMooAf5kn99/wAzR5kn99/zNMooAf5kn99/zNHmSf33/M0yigB/mSf33/M0eZJ/ff8AM0yigCWGWTzU+d/vDufWimRf61P94fzooAJf9a/+8f502nS/61/94/zptABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFPEbkZCnFNKkdqAEopQpPSgjHWgBKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigB0X+tT/eH86KIv8AWp/vD+dFABL/AK1/94/zptOl/wBa/wDvH+dNoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACr2l2pnlzjIWqNbfhonfJxx0/GgBLyPY5CDIFUhiThh09u1dPLYj5mByCMfjWNFYv5zgghR7UAVEtjIpK8L0FVp4ijEHtXTfZCqqq5Cjk5rI1aAglxgLigDJooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAHRf61P94fzooi/1qf7w/nRQAS/61/8AeP8AOm06X/Wv/vH+dNoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACnIjP8AdFN6mteG3EdtuwDmgDLMTU3afSrcyMmM9DSBN2MDljQBV20lX5bUKpwelW/D8WnC6SXU5lCA/cOePQn1oAJPD94Si20LSjaGaTouT2Ga3tH0s2yHzAFCDkn17k10+kyWN8jta3PmKo2kA8cDsKwta1S0aKW0tSyvnHIxuPpQBUuLpHlMcODGc4OKhnuBHKsSoc4znNJpfyKRJGFnzhA2DjP/AOqh4JHJuYx5hJ/eADkH/wDVTAuxAyQLK+QpGMGsy8toru2yW2bWOF/+tWuts9zAwVhDgArv5yP6VQa2McyoHiYE4wOPx5pAYKaSX+ZJQYs8tj7v1qleQfZ5igcOOxAxXQu76dI0Hl5d/wAiM/rXO3mRdSAnODQBDRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA6L/Wp/vD+dFEX+tT/eH86KACX/AFr/AO8f502nS/61/wDeP86bQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUVf0ey+2TyAqSEQkdhnsCaAKIGSABk+ldPaR7oFWTnAx+NRW2gTQuJJXjLdgvY1o3Jjsoli6yMMADtQBm3tnujCJyRRaWW3GRzirEbuYmnYEgDqRxTbN5ZZFyB83f2oAjktwq7epasC5UJKVByR1rq7p0jKoDuGetZl9bWzScBgGOM+9AEfhjVRpd9vkJ8okFh1zg/wCGam1zUrOfUpprRS0UjlgCMEfhVe502K3gLSF8nlWB4rFeRU69aAOi0+9R/MxuBVd/PtTbXWjlgzFCeQTyM+tZVg+24X0cFT9CKLCET6hbwnlXkVT7jNMDpLW4luh++utyF8kovbitTWbiwgt40spfNmbq7YO32zWtJpMLwpHCsNuj/KgBxXNeIdNGl/vEkS6QDJ2DGDkg5+mKLCNa0sxJosk2xnMfzBOuD6ivP76No7p93OTuz65r07wq8l1ol5MSQhUhCOxwK841h5DdlJSC0eV6e9IZRooooAKKKKACiiigAooooAKKKKACiiigAooooAdF/rU/3h/OiiL/AFqf7w/nRQAS/wCtf/eP86bTpf8AWv8A7x/nTaACiiigAooooAKKKKACiiigAooooAKKKKAFXG4bs7c849K6jTNa061txCYZOD12jBHvzXLUUAemaheQ22nrcW8YkHQY6CuTurg3tx5q7YyPvBv6VHaa75WlyWUsTOrhfmz0xWcL1gfuKaAOkd1lVSwOwHDIPpwaWC1lhkcKyMv9484rEu71hBbvHgFgSc/gKWG8a6McWZlbj5UPBpgdFc21uTuEkpfHKgg4qn9mDxEBwWB+RWG0t7VZ0+a1tJHe+ikdm5HPINQwT/btTLFQEz9zsBSAyNQaZrWTz1ZApACnjmsAhs8ffbn6Cu+8YWD7IxGvyFdwIPVveuNs7drq7igiH7yVgopPRXZUYuTUVuxtijLOhRWkYMDgDOa6Tw/o8g1ZrudTHZW+ZC7jHPYfWu603TodNso4rdVVRxn+Jj3JpuqWcV9aGG4n+zxghjKeQmOpI78ZrgjmC51Fx0PqJ8LzWHlUVROS3XTTdX7k2nlYbH+1LltsBO5cjnnhR9cCkvIbHUJIosmV2zFKAuPlcnB98E1xXivxQLiW2stIYrp1moSMsP8AWEcFyD3P6VU0LxRNpl0zFTJCedrHv9a9K58oaN1JL4c06eDeyzPL5Yweynk1x1xK08zyOcsxya1fFGuNrt+LgwiBAMCMNnnuc1jUhhRRRSAKKKKACiiigAooooAKKKKACiiigAooooAdF/rU/wB4fzooi/1qf7w/nRQAS/61/wDeP86bTpf9a/8AvH+dNoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACpLeGS4njhhUtJIwVR6mo84ro/AduJtc8wjIhjL/AIngfzrOrP2cHLsdOCw/1nEQo/zOx0Fj4QtEtY0vneeQZPyttUZ7CrdnoVtpjSvauypJgMZOdgHoasx6hO01+PsrFICFiweZSev0rRVTKgUrhmGCOuCa8hV69OalJ6H3k8uy3EYeVOjFXSbv10ur39UzGl0m1nikkkM/GVBVMDPPJ9q5NDJbanHCSFhkIIfpkZ6mu2n1S2sbo23+sEJBLbsBn9Aaq6jpSXtiJxGEEUu5AeuxuWB+hFe7Y/OSp44AFjbSRygtGg+ZT196w/AFoJtTlunHywJwf9o//WzWXruovd3kygnylO1RnsK6Lw5ImmeE5ruTjz5do+mdo/qa5cU37PlW70PXyaEfrPtZ7QTl9y0/Gx02nym5mnmz8gIRf5/1FM8QyCLQr5z/AM8WH58f1qbSovJsIVPUjcfqayPHc/laCUB5mkVfwHP9K8h2qYhJbXt8kfcxvhcqlKe/K2/WWv5s83ooor3z8wCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAdF/rU/3h/OiiL/Wp/vD+dFABL/rX/3j/Om06X/Wv/vH+dNoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAIJjl8egruvhzGFW/nbooVc/mTXCvzKfwFd74aItfB9/P0LM/P4ACuXF60+Xu0j2ci93Fqo/sqT+5F+/uDLp8SW14IUnuNiM3DMO446nJrW1y6ew0e6uIjiSNPlPoegrlooibjwvaNnIBuGH1Of6Vr+OpfL8Puv/PSRV/XP9K4avv1YLz/X/gH0eDvRwdeo+kUvny3f4yPPDcynduYtu55PStaHxNqMNgbRJF2MpUswyce1YdFewfBga7bV7cjSdA0leGmZSw/Dn/0I1yFjCbi9t4R/y0kVfzNehun2nxpGMfu7K2z9GY8foa4sVO0l5Xf+R9DktD2lOov5nGPybu/wRvgAAAdBwK4n4jT5ksrcHoGkI+vA/ka7avM/Gs/neIJwDxEqxj8sn9TXn4CPNWv2PqOJq3ssC4L7TS/X9DCooor3T82CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAdF/rU/3h/OiiL/AFqf7w/nRQAS/wCtf/eP86bTpf8AWv8A7x/nTaACiiigAooooAKKKKACiiigAooooAKKKKACiiigCAcyt/vCu8Km3+HigcNKR+r/AP1q4RPvE/7Rr0bUodvhrRrbH35YFP8AOuTFOzgvP8j3clheNeS/ka+9pD4Ys+M4I/4bWyA+nGP61X+IsmLKzi/vSFvyH/161LCPd4q1aY/wxxIPxGf6Vz3xFkzfWcX92Mt+Z/8ArVxUferw8l+h9Dj/ANzlld/zTf8A6Vb8kcjRRRXsHwJteDoPO8Q2vGRHmQ/gP8cV3GiL5mo6vdf35/KB9kAH881zXw6h3ahdTH+CMKPxP/1q6zQIymlRM33pWaU/8CYmvHx0/ekvRfqfecOYe1GnJ9XKX3JR/VmjXj2pz/adRupv78rN+Ga9X1Ob7Pp11N/ciZh9cV4/25q8sj8UjDi+r/Cper/T/MKKieZRwvzGm4kk+8dor1bnxRI0ir7n0FIN79flH61dsdJu7nH2W0mk/wBoLx+fSt208G6hMQbhordfc7j+Q/xrKdaEPilY7KGX4nEfwqbfy0+/Y5gAAYFLXoFr4KskwbmeaY+gwoq3dWmh6HbedLbQgj7oYb2Y+gzXO8fTvaCbZ60OGsSoupXlGEVvd/5f5nmlFXNXvjqN/JcmNIg2AEUcADpVOuyLbV2eBUUYyai7rv3CiiimQFFFFABRRRQAUUUUAFFFFADov9an+8P50URf61P94fzooAJf9a/+8f502nS/61/94/zptABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAkSknb3Zv616lrMY8zRYewul/8dU15vpkfm6laR/3pkH6ivTtUUtqek+gmc/+ONXnY2VpxXr+R9Zw7TvQrS7uC/Emsodl7qEp/wCWki/kEH/164Tx5Jv19lz9yJV/mf616PXlvi2TzPEV6fRgv5ACufAe9Vb8v8j1OJ0qOBjTXWX+bMiiigcnA617J+fnf/D2DbpdzKRzJLjPsB/9c11EaLHGqIMKoAA9qy/Cts1roNqkilXYF2BGCMnP+Fa1fOYmfNVk/M/WspoexwdKLWtvz1MbxhIyaBcLGrM8hWMBRknJ/wDrVxFn4X1O+wTb+Sn96U7f0616hRWlHFyow5Yo5cfkdLH11WrSdkrWX+ZyFh4Ito8G8uHkP92MbR+fWt+y0bTrPBt7SIMP4mG4/ma0KKyniKlT4pHXh8qweG/h01fvu/vYdsUVkav4hsdNyryebOP+WUfJ/E9BXD6z4ivdTyhbybc/8s0PX6nvWlHB1KuuyOTMM+wuCTinzS7L9X0Oq13xXb2W6Kx23Fx03A/Ip+vf8K4O+vLi+nM11K0kh7nt7Adqr0V7NDDQor3dz4LMM2xGYS/eO0eiW3/BCiiitzzAooooAKKKKACiiigAooooAKKKKAHRf61P94fzooi/1qf7w/nRQAS/61/94/zptOl/1r/7x/nTaACiiigAooooAKKKKACiiigAooooAKKKKACiiigDU8Lp5niCwHpJu/IZr0+eHzZraTj905b81I/rXA+CLGd9ZiuTC4gjVjvIwM4wP516JXi5hP8Aeq3Y/QeFsP8A7HJzW8r/AHW/UK80vNH1HUtYvXgtnKmZ/nYbV6+pr0uiuehiHQu0tz1szyuGYqMakmlF306nF6f4J6NqFz/wCEf1P+FdLYaRYWAH2W2RW/vsNzfmav0UqmJqVPiZeEynCYTWnBX7vV/iFFFFYHohSMyopZ2CqOpJwBXLeIPFf2G5ktbOJZJk4Z3Pyg+gHeuO1HVb3UWzdzs69kHCj8K7qOBnUSb0R85j+JcNhW6dNc0l933/AOR3ep+K9Ps8rCxupR2j+7/31/hXI6r4m1C/yok+zwn+CLjP1PU1iUV6VLB06Wtrs+QxufYzGe65csey0/4IUUUV1HjBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA6L/AFqf7w/nRRF/rU/3h/OigAl/1r/7x/nTadL/AK1/94/zptABRRRQAUUUUAFFFFABRRRQAUVsaBoNxrDMyMIrdDhpGGefQDua6+y8IabBgz+ZcN/ttgfkK5quLp0nZvU9fA5Hi8bFTgrRfV/1c86RGkYKilmPQKMmtey8Napd4ItzEh/ilO39OtelWtpb2i7baCKIf7CgVK7BBuchR6k4rhnmUnpBH0WH4Spx1xFS/pp+LOPsvBMa4N7dM/qsQwPzNb9loem2WDDaR7h/E/zH9asHULXdtWZZG9I8uf0zUsUxkbAhlVf7zgD9M5rlqVq0/ib/ACPcwuX4DDtKlBN/e/1JaKKK5j1goqtqd2LDT57pl3iJd23OM155qHi7UbrcsLiBPSIc/wDfRrpoYWdfWOx5OZZzh8uajUu5PWyPRbu8trNN11PHEP8AabGfwrOsPENnf6itpaCRyQWMhGF4/WvL3kklcvKxZj1LHJ/Oun+Hse7WJpP7kJ/UiuueBhSpuUndng4fiOvjcXTo04qMW/V2PQaUdaSoryXyLSeU9EjZvyFeYld2PspyUYuT6Hkmpy+fqV1L/flY/rVajOeT1NFfUJWVj8YqSc5OT6hRSqpdgqAsx7AZNadp4f1S6AMdnIqn+KT5B+tKU4x1k7F0qFWs7Uot+iuZdFdZa+Cbp8G5uYYh6KCx/pU+oeHdI0qzaS9u52kIOxQQCx9hisHjKV+VO78j01kWM5HUnHliuraRxlFFFdJ44UUUUAFFFFABRRRQAUUUUAFFFFABRRRQA6L/AFqf7w/nRRF/rU/3h/OigAl/1r/7x/nTadL/AK1/94/zptABRRRQAUUUUAFFFFABRRRQB6h4SMSeG7VlKhQrFz6HJzmrkl1b3UWLbUIoz2dHRv0NeeaB4ik0bfHInnWshyUJxg+oqzdar4auGL/2ZOsh5IR9oz+BryJ4SXtG3fX0/U+6w2e0lhIQi0mlZptrbs0mdXIIYwTe69IV9FkSP+QzVYXuhiTbbxPfz9gqNMT+LcVyTanZRf8AHlpFsvo0zNIfyPFQza1qEqFPtBij/uQgRr+laxwknu3+C/I4qme047JP5OX4yt+TPQ4tUWBC1+kFhFj5Y3kBc/gOn61l3/jOzhytnE9w3qfkX/GuAJJJJJJPc0lXHL6d7y1OerxPinHkpWXnu/yS/A9P8LarPq9rPNcIibZNqhB2xmtqub8AJt0Jm/vTMf0ArpK8rEJRqyUdj7bKak6mDpzqO8mrmH40fZ4duf8AaKr/AOPCvMq9D+IMm3RY0/vzD9Aa88r1cvVqXzPiOKp82Nt2iv1YV2nw4j+a/k9kX+Zrj7eCa5kEdvE8rnsi5NejeDdMn03T5RdoEllfdtzkgY71WOmlScb6sz4bw06mNjU5fdjfXpsb9UNeimn0e7itkLzSJsVQcZzV+ivDjLlafY/R61NVacqb6q33nA2Pgu7lGbuaOAei/Of8K3bPwjpkGDKslw3/AE0bA/IV0NFdM8ZWn1t6HlYfIMDh9oXfnr/wPwIbW0t7VdttBFEP9hQKmYgAliABySawtX8T2On7kRvtE4/gjPA+prhdZ8RXmpsUkfbF2hj4X8fWqpYSpW96Wi8zDG57hMAvZ0/ekui2+bOt13xbDbbodN2zzdDIfuL9PX+VcNd3U15O01zI0kjdWY1AucfNjPtS169HDwoq0UfC5hmmIx8r1Xp0S2QUUUVuecFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAOi/wBan+8P50URf61P94fzooAJf9a/+8f502nS/wCtf/eP86bQAUUUUAFFFFABRRRQAUUUUAMIbJ4DD3pwAx0ApaKACiiigAooq9YaVfX5/wBFtpHX+8RhfzPFKUlFXbLp0p1ZctNNvyPQPBabPDlt/tFm/wDHjW3VLRbRrHSrW2kILxphsdM9au181WkpVJNdz9dwFJ0cNTpy3UV+Rg+LNKudWitIbYoqo5Z2c4A44qrp3g2zgw15I9y/90fKv+NdRRVxxNSMOSLsjCplGFq13iKseaT77aeRFbW0NrH5dtEkSeiLipaKKxbb1Z6MYxirRVkFFFYFrZS+LvHkfhttag0ezdG3XM5AjBVC2G5HXp1rWhQdaXKjz8zzGGXUfazV9bJD9X8TWGn5RX+0Tj+CM8D6npXFat4iv9SyrSeTAf8AlnHwD9T1Ne7/APDLlyLP7WfGWnC12eZ532U7NmM7t2/GMc5rzrSfhXLq/wAVp/BWm65Z3IiiMv8AaMSb4mARW4AY92C9ete1RwlOlruz8+x+e4rG3i3yx7L9e55k6F8fMQPQU5VCjCivdtT/AGeruw8OeItQbX4pLvRVlaW1W1I8wKm9SG3dGUg9ODkdq89+FHw/v/iP4kfStPuYbRYYTcTTygsEQEDgDqSSOOK6jxjjKK+mB+y7A109knji3N+kYlaD7GN6qTgMV8zIBIPNeIfErwVfeAfFc+h6lNFcSIiyxzRAhZEbODg8g8EEe1AHLUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAOi/wBan+8P50URf61P94fzooAJf9a/+8f502nS/wCtf/eP86bQAUUUUAFFFFABRRRQAUUU+GNppkjQZd2Cge5o2Gk27IZTkRnOEVmPoozXqek6HZ6dbqiwxyS4+eR1BJP9BWmqqg+RVX6DFeZLMop2jG59fQ4RqSipValn2tf9UeU2uhandEeVZygH+JxtH61u2Pgmd8Ne3KRj+7GNx/PpXYXUl6rYtbeGQf3pJSv6YNQomquf3s1nCvpGjOfzJFZSxtWS0aR3UeHsHRlacZTf3L9PzK+n+HNMsiGSDzZB/HL8x/LpWwOBgcAUkasqAMxc92IA/lUM97a2/wDr7mGP2ZwDXDKU6j1dz6OjSoYSFoRUF8kT0UyGVJow8R3IehwRn86krM6VJSV0JVDUdYsdPB+03CBx/AvLfkK4fxD4ivZ724ghnMNujlAsZwWA4yT1rnSSSSTkmvTo5c2k5s+Px/FahJ08NC7XV/5HY6j41kbK6fAEH9+Xk/l0rpfDV1LeaJbT3D75X3bm9fmNeU16d4LOfDlr9X/9CNVjKEKVJcq6mfD+ZYnGYyXt53XK9Om66G4K8d1qf7Tq13L1DyO34Z4r1rUJvs9jcTf8842b8hXjMhzvJ9MUstj8Ug4vrfwqXq/0/wAz77uMH9mxuBj/AIRcf+kteB/sZ2bS/EbU7oAbLfTGU8d2kTH/AKCa938azx+Hv2dL+JZEvPsuhpZlo2ADExrFu7+ucV5P+xhZKkfi3U5pGjhQW8OVJH99j/T869Q+KPZYZodYvfF1vHMTeSvcaaYCCwkSOJWBP93BnK59wPSvBf2LFK+OdfVhgjTQCP8Atqte6/Duw0pPEnjObRdcafV7i7829tGUN9ikIYKhOMnpkgHqMV5p+zHpdvpvxJ+IzOhgktJltwrNwitK5K/gVAz7UAaXjnxld+CPj7qN9aeHdR103OiwW/l2SklD5jNkkKfSvBPjz4ruPGPjhNSu9EvdElWzjh+y3gIfAZju5A4OfTtX1L4Kkvbv48fEJC6PpUdvY5SQHeJDH8m3PRceZn3Ir5x/aqnaT4yahCcbLe2t405JOCm7kn3Y00B5FRRRTEFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAOi/wBan+8P50URf61P94fzooAJf9a/+8f502nS/wCtf/eP86bQAUUUUAFFFFABRRRQAVNZT/ZryCfGfLdXx64OahpkqFgCDhh0pNXRUZOMlJdD2i2njuYEngcPE4yrCs7UJNaWZhY29k0X8LSOdx+orzXTNX1DTyVtZXjB6rwVP4HitRvFurlcedGPcRDNeT9QnGV42a8z7f8A1nw9aklV5oy/u2/U6cp4plP+ssIR7DP9DUFxb6pEudR8RQ2y+iAA/wBK5K51vUrkES3sxB7K20fpWexLNliSfU810Qwkutl6L/M8uvnVF/Apy/xTa/CP+Z0t3eaVHnzb3UtSf08wxof61nNrTxE/2fa29n/tIu5/++myayqD0rpjRilrr/X3HkVcwqzd42j6b/e7v8T2HTnaTTrV5GLO0SsSe5IFS3EghgllPRFLfkM1BpPOlWf/AFxT/wBBFVfFM/2fw/evnBKbB+Jx/WvAUeapy+Z+oyq+ywjqvpG/4HkzuZLrceSck/jUlQxczOfwqavpEfkDdwr0zwSc+HLf2Zx/48a8zr0fwE27QAP7srD+RrhzFfuvmfS8KytjWv7r/NFjxlP5Ph26x1k2xj8T/hmvK2G4MPVq9B+Ik22wtIc/fkLH8B/9euJsPIW9tzdxvLbeaplRG2syZ+YA4ODjPOKeXxtSv3J4orc+O5f5Ul+v6nruufHa+1fwRc+G5fDelRxT2YtGuVZjIAFAD9OvGayPhl8XL7wFo0mm2mkWd5C9ybpneV43L4UDJU8gbeB6mu8+Lfwb0Lw/4Rs9R8P2erJcyXsELvLcCeIxSHbkEAYO4p1A69Kb8ePgz4Y+HvgddW0u81Sa+ku47aNLiVGTkMScBAeinvXafOHE+B/jLrHhHxF4h1m1sLW7utbn8+4Fw7bR8zEBcY5+Y8/pVXQ/i5rmi+P9X8U2MFtHJqr77qzBbymPYjPOQc889TXpXhL4G+Hrz4aaB4p1a41PzLlY572KOVVRYXYgsvy5G1SrdTwp9a8//aF8A6b8PPF1nYaI1y1jc2QuAbhw7b97KwyAOOB+dAHU3X7Tfih5fMs9G0S1dnQyyCN2eVVP3Sc9xkZxxnivLPiR4vuPHXi671+8tYrSe4SNDFExZRsUKOTz2r6F0r4AeBh4CsfEmtarrNtC2nR3106yptjBjDsQPLJwMn1rH+JfwC8PaP8ADy88T+F9Y1CZbe2F2q3JR0miODwQqkHByKAPmyivqb4W/Afwf4r+Heja/qcmrw3V3AZJViuVCAhiMgFCecZ/GuA0LwD4H8WfGK08O+F9Xv5/D01m8rT5xMsqAkj50Ax07U7geMUV9az/ALOPgOHWLfSJPEesJqVxE88MBeLc6KQGYfu+2RXmXiL4NWekfGTw/wCD4takuLDVV8wzhF82FRuypHTPycH36UXA8Xor7Cu/gb8MfD+taJp2pjWbi61aR4LZZLk7WdU3HcUAxwK8s/aW+F+ifD6XRbvw4bhLa/MsckE0hkCMm0gqTzghuhz0ouB4hRRRQAUUUUAFFFFABRRRQA6L/Wp/vD+dFEX+tT/eH86KACX/AFr/AO8f502nS/61/wDeP86bQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAeuaId2jWJ/wCmCfyFYnxCn8vSIYc8yy5P0Az/AIVr+G23aDYH/pkBXI/Ee4ze28IPEcRY/Un/AOtXhYeF8T6Nn6Rm2I9nlN/5oxX32/Q5C3Hyk+pqWmoNqAe1Or3Ufm4V3vw7kzp13H/dlDfmP/rVwVdf8OpsXd5Cf4o1cfgcf1rkxsb0We3w7U9nmEPO6/Ai+Ic2/VLeEHiOLJ+pP/1hXLxyPFIskZw6EMp9CORWr4sm8/xDeMDkKwQfgMVkVrho8tKK8jkzWr7bGVZ+b/DQ+8vGdxF4o8BeDNYjxPBJqmm3cywfMJAZACnoRuYcHjj2ryP9sLUZJtP8OW8VpLZWwlmd4pnUMzhVCnYrHAALcnHWvQv2atSt9b+EWh6ZcxXDvZ3LrvELbFMc3mJl8bfTjOa8j/avvG174v6XoduGZ7a2htsDnMkr7uPwKVqcB7veyweF/hN4Mtr5kEAfTbO4MvI2NtWQH227hXi37X1kwtvBuorDNBC9vPCsUxy8YBQqD36Hoeley/GG+8K6N4Rtj4msZbvRLS6gjYWgHmGYAmMAhlxjGTz6Dua4z9sDTFl+HWmajACYYrtF2k527lbBGfXJB/4D6UgO+8RWN1N+z5NYaZbTXdzLoEdvDBGhZ3LQqoAA6nms/wCLS3Gh/s56paXaxedBpcNmdrHBPyR55A55zirureJpdH+AX9rRXrQ6jDoUUiThNxWYxKFJ4IzuI618ZeKviJ4t8V2YtPEGvXd5abg/kNtRCw6EqoAOPemB9mfCzTZrH4ReHJrLVjaWx0uOWRLpFkhTKbmbPysoySfvYHpXiXwl8M2HhL9oCxs9F8Q2etWr6dLJ/aEO0pG7hl2HaxGcgd+c17j4Wjeb9nWyiiRpJH8ObVRRksTbkAAdzXg/7JOnXGnfEXVtP1vTZrc3GkMxhu4SmVEqclWHIP8ASkB754l8IatqXxL8Ma6Ta3OnafZ3FvdxlzG0xfG0BeQRkA4JxxXknxo8e6N4e+MfguWGylVdAaV72GOIJgSgL8vZiACfTtXoxnu4fj/Y6ZY6jJ/ZVtob3K2bTny2Z5drDqScBQQOcc9Aa5f42WMGofHz4YxTW0U8UhdZVkQMsiq27ac8Hvx70Adbe32g/FVtF1Lwb4pt7fW9Hle5tVkiDlWZCjCSFirEYPUfrXz9+0s3j6G70mz8eS6dc2iNJJY3VjFsWQ4UODnkEfLwfXvX0D438OWWm+PvAOoaRolw7w3lwsjWqsUiRoHHODtQbtvYZxXmX7Zc80+meFDLC0Sie44cHOdqewpoD5eooopiCiiigAooooAKKKKAHRf61P8AeH86KIv9an+8P50UAEv+tf8A3j/Om06X/Wv/ALx/nTaACiiigAooooAKKKKACiiigAooooAKKKKACiiigD1Lwk27w7Zeykf+PGuD8XzfatevCDwrCMf8B4/xrtfBsoHhmFmPEZfP4EmvOLiUzTyyt1dix/E5rzcJD99Ul/W59dnmIvl2Gp90n9yX+ZHRRRXpHyIVoaHqb6TqC3KIJPlKlCcZBrPopSipLlZpSqyozVSDs1qiS4laeeSV/vyMWP1JzUdFFNaENtu7O48F/FXxf4L0dtL8O6lHbWTStMY2t45PmYAE5YE9hWHqPivV9Q8Vr4knuVXWVljmWdEA2ugAVgvTjaKw6KBHXeKfiJ4m8VWFtZa7fRXVtbyiZU+zxpucZ5YqAW6nr61J4l+Jvi7xLoP9i63q7XOmblbyTDGOV+78wXPH1rjaKAO+174v+Nte8PT6HqurJNpk8axSRC2iXKqQQNwXPYVwNFFAHpGl/G3x/pemWmn2OuiK0tIlghT7LCdqKMAZK5PArLn+J/i648VL4jn1RZdXW3+yiZ7eIgRZzt2bdvU5zjNcXRQB2l38UPF114hsNck1VV1SwjeK3njtok2K/DDaFwc5PUVDrnxI8Xa5qumanqetzy3+mszWk6oiNCWxnG1RnOB1rkaKAPUoPj78R4Qo/t9ZAv8Az0tITn6/LXJeN/HHiLxvdw3HibUXvGgBWJAiokYPXCqAOcDnrxXNUUAFFFFABRRRQAUUUUAFFFFADov9an+8P50URf61P94fzooAJf8AWv8A7x/nTadL/rX/AN4/zptABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB12lXotvAt78wDmRolGf72P6ZrkaM8Y7UVnTpKDk+7udeKxcsRGnFrSCsFFFFaHIFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAOi/1qf7w/nRRF/rU/3h/OigAl/1r/7x/nTadL/rX/3j/Om0AFFel/CfTdKm8MeNtX1TQIddn0q3tZLa2leRRl5Sjf6sg9P5VQ8Ra5ptxo1zDD8OLLSJXAC3qSXRaI5HI3tt9ufWgDg6K7D4P6TY678TfDumatbrc2Fzc7JoWJAddrHGQQeoFctfosV9dRoNqJK6qPQBiBQBBRXdan4P1TVNd0LTNK0O3srm60iC8xHdbkkjKkm5kduI8gZI6Cqet/D7WdJ0GTW2l0y80dJkt/tdjeJPG0jZ+UY5yMc5AxketAHI0V0zeCNbXx0vhAww/wBuNKIRH5o2biu4fP06VLJolzJ4I02aDRY2muNWlskvY5i0s7hFxB5fQAE5DdycUAcpRXsHg74VXNtf64fEaaVeJY6TdyzW1vfpLLZzrETGZEQ5BDD3GeDXI6F8ONc1jTtPuo5tJtW1EZsbe9v44JrvnbmNGOSCQQCcZPSgDjaKmvbWexvZ7S8ieG5gkaKWNxhkdTgg+4IqGgAorqvhh4ei8TeNtPsL07dNQtdXz5wEt4gXkJPbgY/GtH4raNpdrc6Pr3hm1+y+H9csxcW8G4sIJUOyWLJ54YZ/4FQBwlFd1Y/CzxLeWts6DTo727h+0W2mzXsaXk8eMhkiJzyBkA4J7CqOgeAdY1nTBqPmabpti8xt4ptTvEthNKOqJu5Yjoew9aAOTorrbT4eeIp9a1XTbi1hsJNKwb6e+nWGC3B+6WkJx83bGc9qbfeAPEFrrml6XHbQ3s2q82E1nOs0FyO5SQHHHfOMd6AOUorrNf8AAWraPpEmqC40rUrCGVYJ5tMvUuRBI33VcLyM4wD0PrV26+F3iK2trlmOmPf2sBubjTI76NryGMDcS0QOeAckdR6UAcNRXXaB8P8AWNZ0i31MTaXp1jcuYrWTUr1Lb7SwOCIw3LYPGeme9O0v4ceJ9R1zVtHisUh1DSlV7yO4mWMRIWA37icFeQc5xt5oA4+iu313wrd6P4SdZdO0+5mTWBaDVbK988yMYQwhVV4K8htw5zxTr74XeI7O1umf+zZb60hM9zpsN9HJeQRgZLNEDngckDJHcUAcNRXY6D8PNZ1nTbK+S40myjv2K2SX98kEl2Qdp8tW5I3cZOBmuX1OxutL1G5sNQheC8tpGhmifqjqcEGgCtRRXoXwU0nTNV13XDrOlx6rDY6LdX0Vq7OoeWMKVHyEH1H40Aee0V6JqHiDSn0+5VfhbYWZaNlFwJbvMRI4flscdeeK4jRNNn1jWLDTLTBubyeO3jz03OwUZ/OgClRXqfiPVPB/g3Xrrw9YeD7HXY7CQ213qGo3EomuJF4cxhGCxjOQOD0rPGk6Fe+IPELeDrH+19JTRpb5Y72ZoX084UsQf+WjRk4A6NnvigDzyiuy0f4ca9qulWd9E2m2wvsmxt7u9jhnvMHH7pGOW54HTJ6U2L4deIH8QavpEsVpby6QFN/cXFysdvbBsY3SHjnOAByTQBx9FdfqXw81yy1HRLVTYXia1L5FhdWd2ssEz7gpXeOhBIzmrF78L/EtrqthpflWM2p3hkH2WC8jeS32AFjMM/uwAQctRcDiKK6zWvAWraXaW959q0i80+a4Fqb2yvkmghlPRZWH3PXJ4wDzXpR+D+mL8Ul0T7bZnSxpf2ry/wC0k89pBbhssOoUud3T7nPSi4HhNFdZpHgLVtSS/nW50m306yn+zS6jc3yR2rS/3Uk6Occ/LnjmkPw/8RDxR/YDWkS3vkfa/NM6fZ/s+M+d5udvl4/iz+vFAHKUV0vifwZqfh7T7XUJ5dPvdMuZGhivdPuluITIoyUJHRsc4IrmqAHRf61P94fzooi/1qf7w/nRQAS/61/94/zptOl/1r/7x/nTaAPYfgQ2qnwv4/g8N3q2euzW1oLR/tKW7ZExLbWYgD5c96h8Z6T8VJfDd63ifWZLzSIlEs8UmswTAhTkHYHJJBweBXkZAPUA0BVHQD8qAO8+BM0cHxe8LSzyJHEt3lndgoA2N1JqfX/hX4rtBqeoTW2n/ZYjLOzLqdux2AlshQ+ScdgM156eetJtX+6PyoA+g5b+yuNTh0YX1rBdaz4CtdOtZ5JQqCfhvKZui7tpXnuRmucm8Mar4V+B/iNNcEcE8usWLi0WdJHjAEnzMFJA3dvXbXj+B6Ct2y8RTWng7VPDqQRNb391DdPMSdytEGAAHTB3GlYD3yHQJ7v9oiw8apd6evhe5niuYb9ryMLJmAKIwu7dv3cYxx1Ncr4N13TtD8LeCr7UZY/s9p4xuJ5gCCyJ5aDfjrgdfwrxDA9BS45z3p2A928H+DtU8OeKPFurare2KabPpWpLbXQvI2GoeZGxXywGy3HzHI4Ix1p3g621LVfCvhmC80Tw/wCL9CSLyzctcC0u9JG8loml3hgFzuBII54rwbA9BQQD1FFgNzxvb6baeL9Zt9Du3vNLjupFtrh23GRM8Hd3+vfrWj4i8TaLqmji00/wbpek3IZT9st55ncgdRhiRzXJ0UAeqfD/AFCw8G/DbW9fv7O21K71qYaPBZSTMmbcDfMxKEMATtXt0q/FrGkeOfhfreiWei2OiXegsNXsYIrmRxMpO2dAZGJztwcDqRXjmOc96CAetFgPcfGfhe88ZfEUeLdH1S2tPDF4kFwdXF0i/wBnqkSqysu4MHUqQFHJ4xWXrGh3fjzwP4Rj8JSxai+kJc2V5BJOkMiM0xdZ2V2HyupBLc4Iwa8hwPSggHqKAPoHw/8AZk8P+KvCen3GkeMNcivra7C6jKyx3qrDsdIm8xd5jbgfNgjOBUN9fappupeBdKe68K+E9Qgu57qK3tg8q2LOu0C4Yu6gSYxtzxnJrwTA9KXA9KLAe4eM9Itf+EL1i/8AFHhzTPCWtxyw/Y5dKvB5eoMX+f8A0dXYbVXLbhiuiu9N/tm8u5/HemaFPpZtXkHjXTLsW0kv7v5GKK/7xycKUK5r5sAA6CjA9BRYD1zXfD9/8QPCPgq48KC2uxpumDTb21NxHE9rKsjEuysRhGDA7unFdH4i1mwuD8QILLUILlrTwrZaa91HINtzNG8ayFD/ABDqM98V4AQD1FLgelFgPXvAusWGi/DjwzeX7I0Nn40jupogQWEawLltvXA/pXcO2oaT4w1PxHBoXgiy0tGuLqLxG0skonRw2MKJstI4bBXb1Jr5p7570mB6UrAe6eDINU1TwboMEmh+H/GOipvUpLMLW70nMhLRmXeGVedwOCOa8t+IlrpVl431q28PXj3mlR3DLBcO/mFxxn5v4sHIz3xmudIB6ilpgdZrfibRdQ0IWNl4N0vTbzCD7fBPM0ny4zwzFfmxzx3rqP2dpLiPxTr4sLlLbUJNBu47SRplixMdmzDMQAc4ryukIB6jNAHtWsaN8YrrSLuDVddluLB4mE8UmuW7q6Y5BXzOeO1eVeFdWbQfE2kauieYbG7iudn97YwbH44rK2r/AHR+VLQB634v+G2p+J/FOoa74Mm0/U9A1S4e8juftsUf2cOdzJMrMGQqSQeO1W/D1l4e0LX/ABnp2g6oL6KLwjdQz3bSL5c11hN4hOBlc8DqTg14xgc8DmlxQB7F4i0OXx2PCWt6BqGmx6fa6XaWF3597HC2nyQ8NuRiGwfvAqDnPrXV+I9Fs9T+IfxNmFkNd1eC6t/s+iSXpt47hdo3SsAymTbx8ueM5ry3TfHenxWeljV/B+kapqOlxrFbXjySRblU5TzUQhZCPU4yOua5LX9Vu9e1u91bU5BLe3kzTSuBgFiew7DtikB9BSNHbw/CpLi30PTJrXxMxubLTZg0dpkxkCQ72+bAyTk+nauT+HWsWVv8T/HdvetYST6xDfWlq1+5WCWVptwR3BGFcKRnI6ivGsD0FLjjHanYD2jxgdT0L4a67Z6noHhbw1/acsES2VqzyXN3sbdvX964VV/vEc5IFdO8A/4XppOrme0/s3WdDa3srj7QmySQWAj2nn5TuIHzYr5vAA6CjA9BRYD3nw9b3EnwytPDNr4d0LWvEOh6lci+0y/n+cB8FZYtsihxxtJBOMCpptR1ZfHWjaZZ33hGx1Ox0SW3GnRqZLR953Gwkd3KljzzuwDxXgGBxx0owMYxxRYD174oaRp9t4Jt72/0C08LeJXv9g0yyvfNiuIdh3TeVuby8HABzzXkVAAFFADov9an+8P50URf61P94fzooAJf9a/+8f502nS/61/94/zptABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFADov9an+8P50URf61P94fzooAfNFJ5r/u3+8f4T60zy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKADy5P+eb/98mjy5P8Anm//AHyaKKAHwxSean7t/vD+E+tFFFAH/9k=";document.querySelectorAll('img[data-logo]').forEach(i=>i.src=LOGO);</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+const WA='923111095551';
+/* preloader + age gate */
+let pct=0,loaded=false;
+const pt=setInterval(()=>{pct=Math.min(pct+(loaded?12:Math.random()*5),loaded?100:90);$('#pbar').style.width=pct+'%';$('#ppct').textContent='Loading '+Math.round(pct)+'%';if(pct>=100){clearInterval(pt);setTimeout(()=>{$('#pre').classList.add('out');$('#gate').style.display='grid'},250)}},90);
+addEventListener('load',()=>setTimeout(()=>loaded=true,900));setTimeout(()=>loaded=true,5000);
+$('#yes').onclick=()=>$('#gate').remove();
+addEventListener('scroll',()=>{const h=document.documentElement;$('#prog').style.width=(scrollY/(h.scrollHeight-innerHeight||1)*100)+'%'});
+
+/* 3D scene */
+let sceneMode='home',spinP=-1;
+(function(){
+if(!window.THREE)return;
+const cv=$('#c3d'),sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.1,100);cam.position.z=9;
+const rd=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});rd.setPixelRatio(Math.min(devicePixelRatio,2));
+const g=new THREE.Group(),mat=new THREE.MeshStandardMaterial({color:0xe0261d,metalness:.5,roughness:.3});
+const bar=(h,x,y,rz)=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,h,24),mat);m.position.set(x,y,0);m.rotation.z=rz;g.add(m)};
+bar(5,-.9,0,.18);bar(5,.9,0,.18);bar(4.6,0,.9,Math.PI/2-.08);bar(4.6,0,-.9,Math.PI/2-.08);
+const ring=new THREE.Mesh(new THREE.TorusGeometry(3.6,.03,8,80),new THREE.MeshBasicMaterial({color:0x552220}));g.add(ring);
+sc.add(g);sc.add(new THREE.AmbientLight(0xffffff,.5));
+const p1=new THREE.PointLight(0xffffff,1.2);p1.position.set(5,5,8);sc.add(p1);
+const p2=new THREE.PointLight(0xff3b2a,1.5);p2.position.set(-6,-3,4);sc.add(p2);
+const N=700,pos=new Float32Array(N*3),vel=[];
+for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*2.2;pos[i*3+1]=2.4+Math.random()*3;pos[i*3+2]=Math.random()-.5;vel.push(.004+Math.random()*.01)}
+const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+g.add(new THREE.Points(pg,new THREE.PointsMaterial({color:0xbbbbbb,size:.07,transparent:true,opacity:.35,depthWrite:false})));
+let mx=0,my=0,tx=0,ty=0,cx=3,cy=0,cs=.95,ry=0;
+const mv=e=>{const t=e.touches?e.touches[0]:e;mx=(t.clientX/innerWidth-.5)*2;my=(t.clientY/innerHeight-.5)*2};
+addEventListener('mousemove',mv);addEventListener('touchmove',mv,{passive:true});
+function size(){rd.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}
+addEventListener('resize',size);size();
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches;let t=0;
+(function loop(){requestAnimationFrame(loop);t+=.01;const w=innerWidth>800,home=sceneMode==='home';
+const gx=home?(w?3:0):(w?4.4:0),gy=home?(w?0:1.6):(w?2.6:3.6),gs=home?(spinP>=0?1.2:.95):.45;
+cx+=(gx-cx)*.05;cy+=(gy-cy)*.05;cs+=(gs-cs)*.05;g.position.set(cx,cy,Math.sin(t)*.2);g.scale.setScalar(cs);
+tx+=(mx-tx)*.06;ty+=(my-ty)*.06;
+const sp=home&&spinP>=0;const tr=still?.3:sp?spinP*Math.PI*2+tx*.3:Math.sin(t*.6)*.5+tx*1.1+scrollY*.002;ry+=(tr-ry)*.1;g.rotation.y=ry;g.rotation.x=sp?Math.sin(spinP*Math.PI)*.5+ty*.2:ty*.5;ring.rotation.x=t;
+if(!still){const a=pg.attributes.position.array;for(let i=0;i<N;i++){a[i*3+1]+=vel[i];a[i*3]+=Math.sin(t*2+i)*.002;if(a[i*3+1]>6.5)a[i*3+1]=2.4}pg.attributes.position.needsUpdate=true}
+rd.render(sc,cam)})();
+})();
+
+/* router */
+const pages=['home','shop','about','branches','faq','contact'],titles={home:'Home',shop:'Shop',about:'About',branches:'Branches',faq:'FAQ',contact:'Contact'};
+function route(){let h=location.hash.slice(1);if(!pages.includes(h))h='home';
+pages.forEach(p=>$('#p-'+p).classList.toggle('on',p===h));
+$$('.nl a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+h));
+document.body.classList.toggle('home',h==='home');sceneMode=h;$('#nl').classList.remove('open');
+document.title=(h==='home'?'':titles[h]+' | ')+'Hashtag Vapors | Vape Shop in Karachi';scrollTo({top:0,behavior:'instant'});if(h==='home')counters()}
+addEventListener('hashchange',()=>{const w=$('#wipe');if(matchMedia('(prefers-reduced-motion:reduce)').matches){route();return}w.style.transition='transform .45s cubic-bezier(.7,0,.3,1)';w.style.transform='translateY(0)';setTimeout(()=>{route();w.style.transform='translateY(-100%)';setTimeout(()=>{w.style.transition='none';w.style.transform='translateY(100%)'},500)},460)});$('#burger').onclick=()=>$('#nl').classList.toggle('open');
+function counters(){$$('[data-n]').forEach(e=>{const n=+e.dataset.n,s=e.dataset.s||'';let i=0;const id=setInterval(()=>{i+=Math.max(1,n/40);if(i>=n){i=n;clearInterval(id)}e.textContent=Math.round(i)+s},30)})}
+
+/* shop */
+const P=[
+{n:'Nova Pod Kit',c:'Devices',p:6500,e:'🔋',k:'#7a1410',d:'Compact pod device for everyday use.'},
+{n:'Vortex Mod 80W',c:'Devices',p:14500,e:'⚡',k:'#3b1a6b',d:'Adjustable-power mod for bigger clouds.'},
+{n:'Mango Ice 60ml',c:'E-Liquids',p:1800,e:'🥭',k:'#a85a00',d:'Ripe mango with a cold finish.'},
+{n:'Blue Razz 60ml',c:'E-Liquids',p:1800,e:'🫐',k:'#123a8f',d:'Sweet blue raspberry.'},
+{n:'Salt Nic Mint 30ml',c:'E-Liquids',p:1500,e:'🌿',k:'#0f6b4a',d:'Smooth nic salt in cool mint.'},
+{n:'Pod Cartridge x2',c:'Pods',p:1200,e:'💧',k:'#6b1230',d:'Replacement pods, pack of two.'},
+{n:'Replacement Coils x5',c:'Accessories',p:1400,e:'🌀',k:'#444',d:'Spare coils, pack of five.'},
+{n:'Carry Case',c:'Accessories',p:900,e:'🎒',k:'#5a3a12',d:'Padded case for your device and liquids.'}];
+const CATS=['Devices','E-Liquids','Pods','Accessories'],CE={Devices:'🔋','E-Liquids':'💧',Pods:'📦',Accessories:'🎒'};
+let cat='All',cart={},wish=new Set(),rec=[];try{wish=new Set(JSON.parse(localStorage.getItem('hv-w')||'[]'))}catch(e){}const fmt=v=>'PKR '+v.toLocaleString('en-PK');
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1700)}
+const cardH=(x,i)=>`<div class="card" data-v="${i}"><div class="art" style="--c:${x.k}">${x.e}</div><h3>${x.n}</h3><small>${x.c}</small><div class="row"><span class="price">${fmt(x.p)}</span><button class="heart ${wish.has(+i)?'on':''}" data-h="${i}" aria-label="Wishlist">${wish.has(+i)?'♥':'♡'}</button><button class="add" data-i="${i}">Add to cart</button></div></div>`;
+function wire(root){root.querySelectorAll('.add').forEach(b=>b.onclick=e=>{e.stopPropagation();add(b.dataset.i)});root.querySelectorAll('[data-h]').forEach(b=>b.onclick=e=>{e.stopPropagation();toggleW(+b.dataset.h)});
+root.querySelectorAll('[data-v]').forEach(c=>{c.onclick=()=>view(c.dataset.v);c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`rotateY(${x*14}deg) rotateX(${-y*14}deg)`};c.onmouseleave=()=>c.style.transform=''})}
+function add(i){cart[i]=(cart[i]||0)+1;draw();toast('Added to cart')}
+function shop(){const q=$('#q').value.toLowerCase(),s=$('#sort').value;
+let l=P.map((x,i)=>({x,i})).filter(o=>(cat==='All'||o.x.c===cat)&&o.x.n.toLowerCase().includes(q));
+if(s)l.sort((a,b)=>s==='a'?a.x.p-b.x.p:b.x.p-a.x.p);
+$('#grid').innerHTML=l.map(o=>cardH(o.x,o.i)).join('');$('#none').style.display=l.length?'none':'block';wire($('#grid'))}
+function chips(){$('#chips').innerHTML=['All',...CATS].map(c=>`<button class="chip ${c===cat?'on':''}" data-c="${c}">${c}</button>`).join('');
+$$('.chip[data-c]').forEach(b=>b.onclick=()=>{cat=b.dataset.c;chips();shop()})}
+function view(i){i=+i;const x=P[i];rec=[i,...rec.filter(r=>r!==i)].slice(0,4);rvw();const m=$('#mb');m.innerHTML=`<div class="art" style="--c:${x.k}">${x.e}</div><h3 style="font-size:28px;margin-bottom:6px">${x.n}</h3><p style="color:var(--mute)">${x.d}</p><p class="price" style="margin:12px 0;font-size:22px">${fmt(x.p)}</p><button class="btn" id="mAdd">Add to cart</button><button class="btn ghost" id="mClose">Close</button>`;
+$('#modal').classList.add('open');$('#mAdd').onclick=()=>{add(i);$('#modal').classList.remove('open')};$('#mClose').onclick=()=>$('#modal').classList.remove('open');
+const a=$('#mb .art');a.onmousemove=e=>{const r=a.getBoundingClientRect();a.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*30}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*30}deg)`}}
+$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('open')};
+$('#q').oninput=shop;$('#sort').onchange=shop;
+$('#cats').innerHTML=CATS.map(c=>`<a class="card cat" href="#shop" data-cat="${c}">${c}<span>${CE[c]}</span></a>`).join('');
+$$('[data-cat]').forEach(a=>a.addEventListener('click',()=>{cat=a.dataset.cat;chips();shop()}));
+function featR(){$('#feat').innerHTML=[0,2,1,3].map(i=>cardH(P[i],i)).join('');wire($('#feat'))}featR();
+function draw(){const ids=Object.keys(cart);let tot=0,n=0;
+$('#items').innerHTML=ids.length?ids.map(i=>{const q=cart[i],x=P[i];tot+=q*x.p;n+=q;return `<div class="item"><div><b>${x.n}</b><br><small style="color:var(--mute)">${fmt(x.p)}</small></div><div style="display:flex;gap:8px;align-items:center"><button data-d="${i}" aria-label="Remove one">−</button>${q}<button data-u="${i}" aria-label="Add one">+</button></div></div>`}).join(''):'<p style="color:var(--mute)">Your cart is empty. Add a product from the shop.</p>';
+$('#total').textContent=fmt(tot);$('#cnt').textContent=n;
+$$('[data-d]').forEach(b=>b.onclick=()=>{const i=b.dataset.d;if(--cart[i]<=0)delete cart[i];draw()});
+$$('[data-u]').forEach(b=>b.onclick=()=>{cart[b.dataset.u]++;draw()})}
+$('#cartOpen').onclick=()=>$('#drawer').classList.add('open');$('#cartClose').onclick=()=>$('#drawer').classList.remove('open');
+$('#checkout').onclick=()=>{const ids=Object.keys(cart);if(!ids.length)return toast('Cart is empty');
+let tot=0;const l=ids.map(i=>{tot+=cart[i]*P[i].p;return `${cart[i]} x ${P[i].n}`}).join('%0A');
+window.open(`https://wa.me/${WA}?text=${'Hi Hashtag Vapors, I want to order:%0A'+l+'%0ATotal: '+encodeURIComponent(fmt(tot))}`,'_blank','noopener')};
+$('#form').onsubmit=e=>{e.preventDefault();const t=`Name: ${$('#fn').value}\nPhone: ${$('#fp').value}\nTopic: ${$('#ft').value}\n${$('#fm').value}`;
+window.open(`https://wa.me/${WA}?text=${encodeURIComponent(t)}`,'_blank','noopener');$('#ok').textContent='Opening WhatsApp with your message.';e.target.reset()};
+chips();shop();draw();route();
+
+/* extras */
+function openM(h){$('#mb').innerHTML=h;$('#modal').classList.add('open');$$('#mb [data-x]').forEach(b=>b.onclick=()=>$('#modal').classList.remove('open'))}
+function rvw(){$('#rvw').innerHTML=rec.length?'<h3 style="font-size:24px;margin-bottom:14px">Recently viewed</h3><div class="mini">'+rec.map(i=>cardH(P[i],i)).join('')+'</div>':'';wire($('#rvw'))}
+function toggleW(i){wish.has(i)?wish.delete(i):wish.add(i);try{localStorage.setItem('hv-w',JSON.stringify([...wish]))}catch(e){}$('#wcnt').textContent=wish.size;shop();featR();rvw();toast(wish.has(i)?'Saved to wishlist':'Removed from wishlist')}
+$('#wcnt').textContent=wish.size;
+$('#wl').onclick=()=>{openM('<h3 style="font-size:26px">Your wishlist</h3><div class="qo" style="text-align:left">'+([...wish].map(i=>`<div class="item"><span>${P[i].n}<br><small style="color:var(--mute)">${fmt(P[i].p)}</small></span><button class="add" data-wa="${i}">Add to cart</button></div>`).join('')||'<p style="color:var(--mute)">Nothing saved yet. Tap the heart on a product.</p>')+'<button class="chip" data-x>Close</button></div>');$$('[data-wa]').forEach(b=>b.onclick=()=>add(b.dataset.wa))};
+/* quiz */
+const QZ=[{q:'What are you looking for?',o:['Devices','E-Liquids','Pods','Accessories']},{q:'Which taste do you like?',o:['Fruity','Icy','Minty','Surprise me']},{q:'Your budget?',o:['Under PKR 2,000','PKR 2,000 to 7,000','Any budget']}];let qa=[];
+function quiz(s){if(s>=3)return qres();openM(`<small style="color:var(--mute)">Question ${s+1} of 3</small><h3 style="font-size:26px">${QZ[s].q}</h3><div class="qo">${QZ[s].o.map((o,j)=>`<button data-o="${j}">${o}</button>`).join('')}<button class="chip" data-x>Close</button></div>`);$$('[data-o]').forEach(b=>b.onclick=()=>{qa[s]=+b.dataset.o;quiz(s+1)})}
+function qres(){const c=CATS[qa[0]],tz=[/mango|razz|berry/i,/ice/i,/mint/i][qa[1]],lo=[0,2000,0][qa[2]],hi=[2000,7000,1e9][qa[2]];let l=P.map((x,i)=>({x,i,s:tz&&tz.test(x.n)?1:0})).filter(o=>o.x.c===c&&o.x.p>=lo&&o.x.p<=hi);if(!l.length)l=P.map((x,i)=>({x,i,s:0})).filter(o=>o.x.c===c);l.sort((a,b)=>b.s-a.s);
+openM('<h3 style="font-size:26px">Try these</h3><div class="qo" style="text-align:left">'+l.slice(0,3).map(o=>`<div class="item"><span>${o.x.e} ${o.x.n}<br><small style="color:var(--mute)">${fmt(o.x.p)}</small></span><button class="add" data-qa="${o.i}">Add to cart</button></div>`).join('')+'<button class="chip" id="qr">Start again</button><button class="chip" data-x>Close</button></div>');$$('[data-qa]').forEach(b=>b.onclick=()=>add(b.dataset.qa));$('#qr').onclick=()=>{qa=[];quiz(0)}}
+$('#quizOpen').onclick=()=>{qa=[];quiz(0)};
+/* announcement */
+const AN=['Authentic products from recognized brands','Visit us in Gulshan-e-Iqbal and Bahria Town Karachi','18+ only. Nicotine is addictive.'];let ai=0;const asp=$('#ann span');
+setInterval(()=>{asp.style.opacity=0;setTimeout(()=>{ai=(ai+1)%3;asp.textContent=AN[ai];asp.style.opacity=1},400)},4000);
+/* open now (sample hours 12 PM to 12 AM, Karachi time) */
+const HR={o:12,c:24};
+function openB(){const h=+new Intl.DateTimeFormat('en-GB',{hour:'numeric',hour12:false,timeZone:'Asia/Karachi'}).format(new Date())%24,on=h>=HR.o&&h<HR.c;$$('.ob').forEach(b=>{b.classList.toggle('c',!on);b.textContent=on?'Open now':'Closed now'})}
+$$('#p-branches .box h3').forEach(h=>h.insertAdjacentHTML('beforebegin','<span class="ob"></span>'));openB();setInterval(openB,60000);
+/* scroll 3D */
+addEventListener('scroll',()=>{const s=$('#spin');if(!s||!$('#p-home').classList.contains('on')){spinP=-1;return}const r=s.getBoundingClientRect(),p=-r.top/(r.height-innerHeight);spinP=(p>=0&&p<=1)?p:-1;$$('.cap').forEach((c,i)=>c.classList.toggle('on',spinP>=0?Math.min(2,Math.floor(spinP*3))===i:i===(p<0?0:2)))});
+/* smoke cursor + magnetic buttons */
+(function(){const c=$('#cur'),x=c.getContext('2d');if(matchMedia('(pointer:coarse)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches){c.remove();return}
+let S=[];const rs=()=>{c.width=innerWidth;c.height=innerHeight};rs();addEventListener('resize',rs);
+addEventListener('mousemove',e=>{for(let i=0;i<2;i++)S.push({x:e.clientX,y:e.clientY,vx:(Math.random()-.5)*.8,vy:-Math.random()*.9-.2,r:4+Math.random()*5,a:.35});if(S.length>160)S.splice(0,20)});
+(function l(){requestAnimationFrame(l);x.clearRect(0,0,c.width,c.height);S=S.filter(p=>p.a>.01);for(const p of S){p.x+=p.vx;p.y+=p.vy;p.r+=.25;p.a*=.94;x.fillStyle=`rgba(235,235,235,${p.a*.5})`;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()}})();
+$$('.btn,.cartbtn').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')})})();
+/* Urdu / English */
+const UR={'Home':'ہوم','Shop':'شاپ','About':'ہمارے بارے میں','Branches':'برانچز','FAQ':'سوالات','Contact':'رابطہ','Tag your cloud.':'اپنا کلاؤڈ ٹیگ کریں۔','Authentic devices, e-liquids, pods and accessories from two branches in Karachi.':'کراچی کی دو برانچز سے اصلی ڈیوائسز، ای لیکوئڈز، پوڈز اور ایکسیسریز۔','Shop the range':'پروڈکٹس دیکھیں','Find a branch':'برانچ تلاش کریں','Karachi branches':'کراچی برانچز','Authentic products':'اصلی پروڈکٹس','Product categories':'پروڈکٹ کیٹیگریز','Adults only':'صرف بالغوں کے لیے','Every angle. No copies.':'ہر زاویہ، کوئی نقل نہیں۔','Scroll to turn the hashtag.':'ہیش ٹیگ گھمانے کے لیے اسکرول کریں۔','Picked, not piled.':'چنی ہوئی، ڈھیر نہیں۔','A shelf built from brands we trust.':'ایسے برانڈز جن پر ہمیں بھروسہ ہے۔','Made for adults.':'بالغوں کے لیے۔','Advice you can rely on, in store.':'دکان پر بھروسے مند مشورہ۔','Find your flavour':'اپنا فلیور تلاش کریں','Three quick questions. We suggest what to try.':'تین مختصر سوال۔ ہم بتائیں گے کیا آزمائیں۔','Start the quiz':'کوئز شروع کریں','Shop by category':'کیٹیگری کے مطابق خریداری','Featured':'نمایاں','Authentic only':'صرف اصلی','Hand-picked range':'چنی ہوئی رینج','Fair prices':'مناسب قیمتیں','Real advice':'اصل مشورہ','Not sure what to pick?':'سمجھ نہیں آ رہا کیا لیں؟','Ask our team':'ہماری ٹیم سے پوچھیں','Add to cart':'کارٹ میں ڈالیں','Close':'بند کریں','Your cart':'آپ کا کارٹ','Total':'کل','Place order on WhatsApp':'واٹس ایپ پر آرڈر کریں','Our branches':'ہماری برانچز','Call':'کال کریں','Directions':'راستہ','Call now':'ابھی کال کریں','Contact us':'ہم سے رابطہ کریں','Reach us':'ہم تک پہنچیں','Send on WhatsApp':'واٹس ایپ پر بھیجیں','Questions':'سوالات','About Hashtag Vapors':'ہیش ٹیگ ویپرز کے بارے میں','Recently viewed':'حال ہی میں دیکھی گئیں','Your wishlist':'آپ کی پسندیدہ فہرست','Try these':'یہ آزمائیں','Start again':'دوبارہ شروع کریں','Open now':'ابھی کھلا ہے','Closed now':'ابھی بند ہے','Pages':'صفحات','Visit':'ملاحظہ کریں','What are you looking for?':'آپ کیا ڈھونڈ رہے ہیں؟','Which taste do you like?':'آپ کو کون سا ذائقہ پسند ہے؟','Your budget?':'آپ کا بجٹ؟','Fruity':'فروٹی','Icy':'آئسی','Minty':'منٹی','Surprise me':'مجھے حیران کریں','Any budget':'کوئی بھی بجٹ','Are you 18 or older?':'کیا آپ کی عمر 18 سال یا زیادہ ہے؟',"Yes, I'm 18+":'جی، میں 18+ ہوں','No, leave':'نہیں، باہر جائیں','Authentic products from recognized brands':'مستند برانڈز کی اصلی پروڈکٹس','Visit us in Gulshan-e-Iqbal and Bahria Town Karachi':'گلشن اقبال اور بحریہ ٹاؤن کراچی میں تشریف لائیں','18+ only. Nicotine is addictive.':'صرف 18+۔ نکوٹین کی لت لگ سکتی ہے۔'};
+let lang='en';const og=new WeakMap();const mo=new MutationObserver(()=>{if(lang==='ur')applyL()});
+function applyL(){mo.disconnect();$$('body *').forEach(e=>{if(e.children.length||/^(SCRIPT|STYLE)$/.test(e.tagName))return;let k=og.get(e);if(!k||(e.textContent!==UR[k]&&e.textContent.trim()!==k))k=e.textContent.trim();if(!UR[k])return;og.set(e,k);e.textContent=lang==='ur'?UR[k]:k});mo.observe(document.body,{childList:true,subtree:true})}
+$('#lang').onclick=()=>{lang=lang==='en'?'ur':'en';document.documentElement.lang=lang;$('#lang').textContent=lang==='ur'?'English':'اردو';applyL();if(lang==='en')mo.disconnect()};
+/* chatbot */
+const A={branches:'We have two branches: Gulshan-e-Iqbal (Mateen Shopping Galaxy, Shop UG-11, Main Rashid Minhas Road) and Bahria Town Karachi (Jakvani Midway Tower, Midway Commercial B, Shop 142b).',products:'We stock devices, pods, e-liquids, coils and accessories. Open the Shop page to browse.',contact:'Call (311) 109-5551 or use the Contact page.',authentic:'Yes. We only sell authentic products from recognized brands.'};
+function say(t,c){const d=document.createElement('div');d.className='m '+c;d.textContent=t;$('#msgs').append(d);$('#msgs').scrollTop=1e5}
+function ask(q){say(q,'u');const l=q.toLowerCase(),k=/branch|where|address|location|gulshan|bahria/.test(l)?'branches':/contact|call|phone|number/.test(l)?'contact':/authentic|original|real|fake/.test(l)?'authentic':/product|liquid|pod|device|buy|shop/.test(l)?'products':null;
+setTimeout(()=>say(k?A[k]:'I can help with branches, products, contact details and authenticity. Pick one below.','b'),400)}
+$('#fab').onclick=()=>$('#chat').classList.toggle('open');$$('#qs button').forEach(b=>b.onclick=()=>ask(b.textContent));
+</script>
+</body>
+</html>
